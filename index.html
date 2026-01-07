@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REVO - Gestion de Chantiers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              primary: '#2B5F4C',
+              secondary: '#E1F2EC',
+              accent: '#FFBB33',
+              success: '#2ECC71',
+              danger: '#E74C3C',
+              neutralDark: '#222222',
+              neutralLight: '#F8F9FA',
+            },
+            animation: {
+              'halo-pulse': 'halo-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              'halo-pulse': {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(231, 76, 60, 0.7)', borderColor: 'rgba(231, 76, 60, 1)' },
+                '50%': { boxShadow: '0 0 20px 5px rgba(231, 76, 60, 0.3)', borderColor: 'rgba(231, 76, 60, 0.5)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ccc; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2B5F4C; 
+      }
+      /* Leaflet overrides */
+      .leaflet-popup-content-wrapper {
+        border-radius: 12px;
+        padding: 0;
+        overflow: hidden;
+      }
+      .leaflet-popup-content {
+        margin: 0;
+        width: 280px !important;
+      }
+      /* Custom Halo Class */
+      .limit-halo {
+        border: 2px solid #E74C3C !important;
+        animation: halo-pulse 2s infinite;
+      }
+      @keyframes halo-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+        50% { box-shadow: 0 0 15px 5px rgba(231, 76, 60, 0.4); }
+        100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "leaflet": "https://esm.sh/leaflet@1.9.4",
+    "react-leaflet": "https://esm.sh/react-leaflet@4.2.1?external=react,react-dom,leaflet",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-neutralLight text-neutralDark antialiased">
+    <div id="root"></div>
+  </body>
+</html>
